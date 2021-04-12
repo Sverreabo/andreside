@@ -4,27 +4,6 @@ body {
     font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
-div.container {
-    margin: auto;
-    max-width: 1280px;
-}
-
-.panel {
-    border-radius: 5px;
-    padding: 1%;
-    margin: 1%;
-}
-
-.absolute {
-    position: absolute;
-}
-
-article.panel {
-    width: 200px;
-    margin-left: 0%;
-    margin-right: 0%;
-}
-
 header {
     background-color: #32746D;
     border-radius: 5px;
@@ -38,16 +17,52 @@ nav {
     background-color: #9EC5AB;
 }
 
+article {
+    background-color: #4b6360;
+    display: inline-block;
+}
+
+
+div.container {
+    margin: auto;
+    max-width: 1280px;
+}
+
+div.content {
+   background-color: #54B6AC;
+}
+
+.panel {
+    border-radius: 5px;
+    padding: 1%;
+    margin: 1%;
+}
+
+.absolute {
+    position: absolute;
+}
+
+article.panel {
+    min-width: min-content;
+    width: 200px;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+
+}
+
 a {
     text-decoration: none;
+    color: black;
 }
 
 a.button {
     display: inline-block;
     background-color: #9EC5AB;
     border-radius: 5px;
+    border-style: outset;
+    border-color: #4b6360;
+    border-width: 2px;
     padding: 1%;
-    
 }
 
 a.inline {
@@ -55,14 +70,9 @@ a.inline {
 }
 
 a:hover {
-    color: goldenrod;
+    color: #E8DB7D;
 }
 
 a.button:hover {
     background-color: #8daf98;
-}
-
-article {
-    background-color: #4b6360;
-    display: inline-block;
 }
