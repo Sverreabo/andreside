@@ -38,8 +38,8 @@ div.content {
     margin: 1%;
 }
 
-.absolute {
-    position: absolute;
+.fixed {
+    position: fixed;
 }
 
 article.panel {
