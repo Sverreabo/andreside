@@ -38,6 +38,11 @@ div.content {
     margin: 1%;
 }
 
+.tight_panel {
+    border-radius: 5px;
+    padding: 1%;
+}
+
 .fixed {
     position: fixed;
 }
@@ -48,6 +53,10 @@ article.panel {
     margin-left: 0.5%;
     margin-right: 0.5%;
 
+}
+
+article:hover {
+    background-color: #445553;
 }
 
 a {
