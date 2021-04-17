@@ -1,7 +1,8 @@
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="vigenere.js"></script>
 </head>
 
 <body>
@@ -11,19 +12,45 @@
 
     <div class=container>
         <header class=panel>
-            <h1>Vigenere cipher</h1>
-            <img src="resources/vigenere.png">
+            <h1>Vigenere-kryptering</h1>
+            <img src="resources/vigenere.webp">
         </header>
         <nav class=panel>
             <a href="#introduksjon" class=button>Introduksjon</a>
-            <a href="test.html" class=button>wasd</a>
-            <a href="test.html" class=button>wasd</a>
+            <a href="#lag_og_bryt" class=button>Lag og bryt!</a>
+            <a href="#hvordan" class=button>Hvordan det fungerer</a>
         </nav>
+
         <div class="panel" id="introduksjon">
             <h2>Introduksjon</h2>
+            <p>Vigenere-kryptering, oppkalt etter </p>
             <p>Jeg har laget et program i python som løser <a
                     href="https://oppgaver.kidsakoder.no/python/kryptonott/kryptonott" target="_blank"
                     class=inline>kryptonøtta</a> til kidsakoder.</p>
+        </div>
+
+        <div class="panel" id="lag_og_bryt">
+            <h2>Lag og bryt vigenere-koder!</h2>
+            <p>Nå kan også <em>du</em> kryptere, dekryptere og ikke minst finne løsninger på vigenere-koder ved hjelp av
+                (fra google translate: "brute force"): <em>ren styrke!</em></p>
+
+        </div>
+
+        <div class="panel" id="hvordan">
+            <h2>Hvordan det fungerer</h2>
+            <details>
+                <summary><code>vigenere_master.py</code> krypterer og dekrypterer</summary>
+                <p>Blah blah</p>
+                <p>Bruker alfabetet som er spesifisert i kryptonøtta:</p>
+                <code>ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅabcdefghijklmnopqrstuvwxyzæøå .,?-_;:+1234567890"</code>
+                <p>Bokstaver som ikke er en del av dette alfabetet vil naturligvis ikke fungere</p>
+            </details>
+            <details>
+                <summary><code>brute.py</code> finner svaret</summary>
+                <p>Ved hjelp av en engelsk ordbok, <code>words.txt</code> fra linux/unix, minus de ordene som bruker
+                    bokstaver som ikke finnes i alfabetet jeg bruker. Den største synderen på dette var ' , altså tegnet
+                    som brukes i forkortelser som feks I'm.</p>
+            </details>
         </div>
 
 
