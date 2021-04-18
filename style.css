@@ -23,15 +23,43 @@ nav {
 
 article {
     background-color: #4b6360;
-    display: inline-block;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
+hr {
+    margin: 10px;
+    margin-top: -10px;
+    border-color: #32746D;
+}
+
+#prosjekter article img {
+    height: 200px;
+}
+
+#om_meg article img {
+    height: 40px;
+}
+
+img.curved {
+    border-radius: 15px;
+}
 
 div.container {
     margin: auto;
     max-width: 1280px;
 }
 
+.inline-block {
+    display: inline-block;
+}
+
+.background-color {
+    background-color: #32746D;
+}
 
 .panel {
     border-radius: 5px;
@@ -56,15 +84,6 @@ article.panel {
 
 }
 
-article:hover {
-    background-color: #445553;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
 a.button {
     display: inline-block;
     background-color: #9EC5AB;
@@ -79,10 +98,18 @@ a.inline {
     text-decoration: underline;
 }
 
+div#encrypt, div#decrypt {
+    width: 40%;
+}
+
 a:hover {
     color: #E8DB7D;
 }
 
 a.button:hover {
     background-color: #8daf98;
+}
+
+article:hover {
+    background-color: #445553;
 }
