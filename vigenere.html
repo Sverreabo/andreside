@@ -33,7 +33,15 @@
             <h2>Lag og bryt vigenere-koder!</h2>
             <p>Nå kan også <em>du</em> kryptere, dekryptere og ikke minst finne løsninger på vigenere-koder ved hjelp av
                 (fra google translate: "brute force"): <em>ren styrke!</em></p>
-
+            <div class="panel background-color inline-block" id="encrypt">
+                <h3>Krypter</h3>
+                <hr>
+                <input id="encrypt_msg">
+            </div>
+            <div class="panel background-color inline-block" id="encrypt">
+                <h3>Dekrypter</h3>
+                <p>wasd</p>
+            </div>
         </div>
 
         <div class="panel" id="hvordan">
@@ -48,7 +56,8 @@
             <details>
                 <summary><code>brute.py</code> finner svaret</summary>
                 <p>Ved hjelp av en engelsk ordbok, <code>words.txt</code> fra linux/unix, minus de ordene som bruker
-                    bokstaver som ikke finnes i alfabetet jeg bruker. Den største synderen på dette var ' , altså tegnet
+                    bokstaver som ikke finnes i alfabetet jeg bruker. Den største synderen på dette var ' , altså
+                    tegnet
                     som brukes i forkortelser som feks I'm.</p>
             </details>
         </div>
