@@ -36,6 +36,32 @@ hr {
     border-color: #32746D;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table tr:nth-child(even){
+    background-color: rgb(200, 200 0);
+}
+
+table tr:hover {
+    background-color: blue;
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: red;
+    color: white;
+}
+
 #prosjekter article img {
     height: 200px;
 }
