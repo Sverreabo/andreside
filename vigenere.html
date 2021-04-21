@@ -33,14 +33,32 @@
             <h2>Lag og bryt vigenere-koder!</h2>
             <p>Nå kan også <em>du</em> kryptere, dekryptere og ikke minst finne løsninger på vigenere-koder ved hjelp av
                 (fra google translate: "brute force"): <em>ren styrke!</em></p>
+            <div class="panel background-color inline-block">
+                <label for="server_ip">IP-adresse:</label>
+                <input placeholder="IP-adresse" value="127.0.0.1:5000" id="server_ip">
+
+            </div>
+            <br>
             <div class="panel background-color inline-block" id="encrypt">
                 <h3>Krypter</h3>
                 <hr>
-                <input id="encrypt_msg">
+                <input placeholder="Tekst å kryptere" id="encrypt_msg">
+                <input placeholder="Kodeord" id="encrypt_key">
+                <div class="panel">
+                    <button onclick="encrypt()">Krypter!</button>
+                </div>
+                <p id="encrypt_output"></p>
             </div>
+
             <div class="panel background-color inline-block" id="encrypt">
                 <h3>Dekrypter</h3>
-                <p>wasd</p>
+                <hr>
+                <input placeholder="Kryptert tekst" id="decrypt_secret">
+                <input placeholder="Kodeord" id="decrypt_key">
+                <div class="panel">
+                    <button onclick="decrypt()">Dekrypter!</button>
+                </div>
+                <p id="decrypt_output"></p>
             </div>
         </div>
 
