@@ -48,11 +48,11 @@ table td, table th {
 }
 
 table tr:nth-child(even){
-    background-color: rgb(200, 200 0);
+    background-color: #104F55;
 }
 
 table tr:hover {
-    background-color: blue;
+    background-color: #9EC5AB;
 }
 
 table th {
@@ -82,6 +82,14 @@ div.container {
 
 .inline-block {
     display: inline-block;
+}
+
+.block {
+    display: block;
+}
+
+.p50 {
+    width: 50%;
 }
 
 .background-color {
