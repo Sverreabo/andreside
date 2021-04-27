@@ -26,6 +26,15 @@ article {
     background-color: #4b6360;
 }
 
+summary {
+    font-weight: 500;
+}
+
+li {
+    display: list-item;
+    list-style-position: inside;
+}
+
 a {
     text-decoration: none;
     color: black;

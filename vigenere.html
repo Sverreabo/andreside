@@ -80,20 +80,43 @@
 
         <div class="panel" id="hvordan">
             <h2>Hvordan det fungerer</h2>
-            <details>
-                <summary><code>vigenere_master.py</code> krypterer og dekrypterer</summary>
-                <p>Blah blah</p>
-                <p>Bruker alfabetet som er spesifisert i kryptonøtta:</p>
-                <code>ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅabcdefghijklmnopqrstuvwxyzæøå .,?-_;:+1234567890"</code>
-                <p>Bokstaver som ikke er en del av dette alfabetet vil naturligvis ikke fungere</p>
-            </details>
-            <details>
-                <summary><code>brute.py</code> finner svaret</summary>
-                <p>Ved hjelp av en engelsk ordbok, <code>words.txt</code> fra linux/unix, minus de ordene som bruker
-                    bokstaver som ikke finnes i alfabetet jeg bruker. Den største synderen på dette var ' , altså
-                    tegnet
-                    som brukes i forkortelser som feks I'm.</p>
-            </details>
+            <p>(Klikk på pilene under for å skjule eller vise forklaringer)</p>
+            <div class="panel background-color p50 inline-block">
+                <details open>
+                    <summary><code>vigenere_master.py</code> krypterer og dekrypterer</summary>
+                    <p>Blah blah</p>
+                    <p>Bruker alfabetet som er spesifisert i kryptonøtta:</p>
+                    <code>ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅabcdefghijklmnopqrstuvwxyzæøå .,?-_;:+1234567890"</code>
+                    <p>Bokstaver som ikke er en del av dette alfabetet vil naturligvis ikke fungere</p>
+                </details>
+            </div>
+            <div class="panel background-color p50 inline-block">
+                <details open>
+                    <summary><code>brute.py</code> finner svaret</summary>
+                    <p>Ved hjelp av en engelsk ordbok, <code>words.txt</code> fra linux/unix, minus de ordene som bruker
+                        bokstaver som ikke finnes i alfabetet jeg bruker. Den største synderen på dette var ' , altså
+                        tegnet
+                        som brukes i forkortelser som feks I'm.</p>
+                </details>
+            </div>
+            <div class="panel background-color p50 inline-block">
+                <details open>
+                    <summary><code>webapi.py</code> er serveren</summary>
+                    <p>Ved hjelp av <a href="https://en.wikipedia.org/wiki/Flask_(web_framework)" target="_blank"
+                            class="inline">flask</a>, lar serveren deg
+                        utnytte funksjonaliteten til både <code>vigenere_master.py</code> og <code>brute.py</code>, over
+                        internett.</p>
+                    <p>Man kontakter serveren med HTTP GET <i>forespørseler</i>. Her er forespørselene du kan gjøre:</p>
+                    <ul>
+                        <li>/brute_api?</li>
+                        <li>wasd</li>
+                    </ul>
+                    <p>
+                        Ved å importere brute.py, lar den deg både kryptere, dekryptere og aller viktigst, <i>brute
+                            force</i>
+                    </p>
+                </details>
+            </div>
         </div>
 
 
