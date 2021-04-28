@@ -37,13 +37,19 @@
             <h2>Lag og bryt vigenere-koder!</h2>
             <p>Nå kan også <em>du</em> kryptere, dekryptere og ikke minst finne løsninger på vigenere-koder ved hjelp av
                 (fra google translate: "brute force"): <em>ren styrke!</em></p>
-            <div class="panel background-color inline-block">
+
+            <div class="panel background-color inline-block p50">
                 <label for="server_ip">IP-adresse:</label>
                 <input placeholder="Kopier fra webapi.py" value="10.89-11-142.nextgentel.com:5000" id="server_ip">
+                <p>IP-adressen som står her fra før av går til datamaskinen min hjemme. Hvis det ikke fungerer, kjør
+                    <code>webapi.py</code> og paste inn
+                    ip-adressen som kommer opp. Husk å
+                    ta med porten i navnet! Eksempel: <code>10.0.0.114:5000</code>
+                </p>
 
             </div>
             <br>
-            <div class="panel background-color inline-block" id="encrypt">
+            <div class="panel background-color inline-block p45" id="encrypt">
                 <h3>Krypter</h3>
                 <hr>
                 <input placeholder="Tekst å kryptere" id="encrypt_msg">
@@ -54,7 +60,7 @@
                 <p id="encrypt_output"></p>
             </div>
 
-            <div class="panel background-color inline-block" id="encrypt">
+            <div class="panel background-color inline-block p45" id="encrypt">
                 <h3>Dekrypter</h3>
                 <hr>
                 <input placeholder="Kryptert tekst" id="decrypt_secret">
@@ -65,9 +71,15 @@
                 <p id="decrypt_output"></p>
             </div>
             <br>
+
             <div class="panel background-color inline-block p50">
                 <h3>Brute force</h3>
                 <hr>
+                <div class="panel">
+                    <p><a onclick="paste_kryptonott()" class="inline">Trykk her</a> for å sette inn koden i kryptonøtta.
+                    </p>
+                    <p>Husk at det bare fungerer på engelske setninger med et engelsk ord som kodeord</p>
+                </div>
                 <input placeholder="Kryptert tekst" id="brute_secret">
                 <div class="panel">
                     <button onclick="brute_force()">Brute force!</button>

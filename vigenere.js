@@ -44,7 +44,7 @@ function brute_force() {
     var url = "http://" + server_ip + "/brute_api?secret=" + encodeURIComponent(secret);
     get_url(url)
         .then(data => {
-            table.innerHTML = ""
+            reset_table()
             data.forEach(function (item, i) {
                 var row = table.insertRow(-1);
                 var cell1 = row.insertCell(0);
@@ -57,5 +57,14 @@ function brute_force() {
         });
 }
 
+function reset_table() {
+    table.innerHTML = "<thead><tr><th>Dekryptert tekst</th><th>Kodeord</th><th>Antall engelske ord</th></tr></thead>"
+}
+
+function paste_kryptonott() {
+    document.getElementById("brute_secret").value = 't-JO:BK0aM,:CQ+ÆAGW?FJGB0KVCGMQ6SQN"GAIDL-PÅ7954E:7Jr,IÆoCF0M"CQdØVlHD53CÅ;IA2DMG5ØHDØVåL:JQØ439LRBBVEMTBÆ6CF0M"CQNAG8G1V6LÅ8FF4Z';
+}
+
 var table = document.getElementById("brute_force_output");
+reset_table()
 console.log("Loaded vigenere.js")

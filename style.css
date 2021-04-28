@@ -67,9 +67,6 @@ table tr:hover {
 table th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
-    background-color: red;
-    color: white;
 }
 
 #prosjekter article img {
@@ -99,6 +96,10 @@ div.container {
 
 .p50 {
     width: 50%;
+}
+
+.p45 {
+    width: 45%
 }
 
 .background-color {
@@ -140,11 +141,9 @@ a.button {
 
 a.inline {
     text-decoration: underline;
+    font-weight: 500;
 }
 
-div#encrypt, div#decrypt {
-    width: 40%;
-}
 
 a:hover {
     color: #E8DB7D;
