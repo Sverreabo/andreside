@@ -35,6 +35,14 @@ li {
     list-style-position: inside;
 }
 
+code {
+    font-family: monospace;
+    font-size: 14px;
+    padding-left: 1px;
+    padding-right: 1px;
+    background-color: rgba(16, 79, 85, 0.5);
+}
+
 a {
     text-decoration: none;
     color: black;
@@ -61,7 +69,7 @@ table tr:nth-child(even){
 }
 
 table tr:hover {
-    background-color: #9EC5AB;
+    background-color: #8daf98;
 }
 
 table th {
@@ -100,6 +108,16 @@ div.container {
 
 .p45 {
     width: 45%
+}
+
+.selectable, code, table.selectable_table td {
+    -webkit-user-select: all; /* Safari */
+    -ms-user-select: all; /* IE 10 and IE 11 */
+    user-select: all;
+}
+
+.no_wrap {
+    white-space: nowrap;
 }
 
 .background-color {
@@ -153,6 +171,6 @@ a.button:hover {
     background-color: #8daf98;
 }
 
-article:hover {
+article.panel:hover, article.tight_panel:hover {
     background-color: #445553;
 }

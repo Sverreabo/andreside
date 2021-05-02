@@ -42,8 +42,8 @@
                 <label for="server_ip">IP-adresse:</label>
                 <input placeholder="Kopier fra webapi.py" value="10.89-11-142.nextgentel.com:5000" id="server_ip">
                 <p>IP-adressen som står her fra før av går til datamaskinen min hjemme. Hvis det ikke fungerer, kjør
-                    <code>webapi.py</code> og paste inn
-                    ip-adressen som kommer opp. Husk å
+                    <code>start_server.bat</code> og paste inn
+                    IP-adressen som kommer opp. Husk å
                     ta med porten i navnet! Eksempel: <code>10.0.0.114:5000</code>
                 </p>
 
@@ -57,7 +57,7 @@
                 <div class="panel">
                     <button onclick="encrypt()">Krypter!</button>
                 </div>
-                <p id="encrypt_output"></p>
+                <p id="encrypt_output" class="selectable"></p>
             </div>
 
             <div class="panel background-color inline-block p45" id="encrypt">
@@ -68,7 +68,7 @@
                 <div class="panel">
                     <button onclick="decrypt()">Dekrypter!</button>
                 </div>
-                <p id="decrypt_output"></p>
+                <p id="decrypt_output" class="selectable"></p>
             </div>
             <br>
 
@@ -85,7 +85,7 @@
                     <button onclick="brute_force()">Brute force!</button>
                 </div>
                 <div id="panel inline-block">
-                    <table id="brute_force_output"></table>
+                    <table id="brute_force_output" class="selectable_table"></table>
                 </div>
             </div>
         </div>
@@ -96,19 +96,49 @@
             <div class="panel background-color p50 inline-block">
                 <details open>
                     <summary><code>vigenere_master.py</code> krypterer og dekrypterer</summary>
-                    <p>Blah blah</p>
-                    <p>Bruker alfabetet som er spesifisert i kryptonøtta:</p>
-                    <code>ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅabcdefghijklmnopqrstuvwxyzæøå .,?-_;:+1234567890"</code>
-                    <p>Bokstaver som ikke er en del av dette alfabetet vil naturligvis ikke fungere</p>
+                    <p>
+                        Vigenere-kryptering er kort forklart en mer avansert ceasar-kryptering der man krypterer med en
+                        serie av tall i stedet for bare ett tall. Denne serien av tall kommer fra et kodeord: Hver
+                        bokstav blir til et tall ut i fra hvilken posisjon den har i alfabetet.
+                    </p>
+                    <p>
+                        Altså krypterer man en tekst med et kodeord og mottakeren må enten vite eller klare å gjette seg
+                        til kodeordet for å få den originale teksten.
+                    </p>
+                    <p>
+                        Fordi hvilken posisjon forskjellige bokstaver/tegn har i alfabetet bestemmer hvilket
+                        tall det vil få, er det viktig at man bruker det samme alfabetet.
+                        <br>
+                        <code>vigenere_master.py</code> bruker
+                        alfabetet som er spesifisert i
+                        kryptonøtta:
+                        <br>
+                        <code>ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅabcdefghijklmnopqrstuvwxyzæøå .,?-_;:+1234567890"</code>
+                    </p>
+
+                    <p>Bokstaver som ikke er en del av dette alfabetet vil naturligvis ikke fungere.</p>
                 </details>
             </div>
             <div class="panel background-color p50 inline-block">
                 <details open>
                     <summary><code>brute.py</code> finner svaret</summary>
-                    <p>Ved hjelp av en engelsk ordbok, <code>words.txt</code> fra linux/unix, minus de ordene som bruker
-                        bokstaver som ikke finnes i alfabetet jeg bruker. Den største synderen på dette var ' , altså
-                        tegnet
-                        som brukes i forkortelser som feks I'm.</p>
+                    <p>
+                        Ved å gå igjennom en rekke mulige kodeord og rangere den dekryptere teksten etter hvor mange
+                        riktige ord de har, kan man finne den originale teksten.
+                    </p>
+                    <p>
+                        Kodeordene jeg bruker er en engelsk ordbok, <a href="https://en.wikipedia.org/wiki/Words_(Unix)"
+                            target="_blank" class="inline">words</a>,
+                        fra linux/unix. (bortsett fra de ordene som bruker bokstaver som ikke er i alfabetet vi
+                        bruker)
+                    </p>
+                    <p>
+                        Totalt er det
+                        <span class="no_wrap">71 787</span> ord.
+                    </p>
+                    <p>
+                        Jeg rangerer de 71 tusen mulige løsningene etter hvor mange engelske ord jeg finner i teksten.
+                    </p>
                 </details>
             </div>
             <div class="panel background-color p50 inline-block">
@@ -118,14 +148,16 @@
                             class="inline">flask</a>, lar serveren deg
                         utnytte funksjonaliteten til både <code>vigenere_master.py</code> og <code>brute.py</code>, over
                         internett.</p>
-                    <p>Man kontakter serveren med HTTP GET <i>forespørseler</i>. Her er forespørselene du kan gjøre:</p>
-                    <ul>
-                        <li>/brute_api?</li>
-                        <li>wasd</li>
-                    </ul>
+                    <p>Man kontakter serveren med HTTP GET <i>forespørseler</i>.</p>
+
                     <p>
-                        Ved å importere brute.py, lar den deg både kryptere, dekryptere og aller viktigst, <i>brute
-                            force</i>
+                        Ved å importere <code>brute.py</code>, lar den deg både kryptere, dekryptere og aller viktigst
+                        løse koder ved hjelp av
+                        <i>brute
+                            force</i>. Etter at man har generert og rangert de mulige løsningene, blir de 6 høyest
+                        rangerte svarene formatert med JSON og
+                        sendt som svar til HTTP GET forespørselen. Hvor mange ord som ble funnet og hva kodeordet er
+                        sendes også.
                     </p>
                 </details>
             </div>
