@@ -42,9 +42,11 @@ function brute_force() {
     var secret = document.getElementById("brute_secret").value;
     var server_ip = document.getElementById("server_ip").value;
     var url = "http://" + server_ip + "/brute_api?secret=" + encodeURIComponent(secret);
+    var t0 = performance.now()
     get_url(url)
         .then(data => {
-            reset_table()
+            var total = Math.round((performance.now() - t0)) / 1000;
+            reset_table();
             data.forEach(function (item, i) {
                 var row = table.insertRow(-1);
                 var cell1 = row.insertCell(0);
@@ -54,6 +56,7 @@ function brute_force() {
                 cell2.innerHTML = item[2];
                 cell3.innerHTML = item[1];
             });
+            document.getElementById("brute_force_time").innerHTML = String(total) + " sekunder"
         });
 }
 
