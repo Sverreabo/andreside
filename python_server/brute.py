@@ -1,6 +1,15 @@
 from vigenere_master_cython import vigenere_encode, vigenere_decode, alphabet
 from multiprocessing import current_process
 
+# def ioc(string: str):
+#     """Alternative to number_of_valid words. """
+
+#     string_set = set(string)
+#     frequencies = dict()
+#     for x in string_set:
+#         frequencies.update({x: string.count(x)})
+#     return sum(frequencies.values()) / len(frequencies)
+
 
 def number_of_valid_words(string: str,
                           dictionary,
@@ -71,10 +80,13 @@ if current_process().name == "MainProcess":
         from multiprocessing import freeze_support
         freeze_support()
         from time import time
+        from sys import argv
+        allow_stop = not (len(argv) >= 2 and argv[1] == "-nostop")
 
         secret = ""
 
-        secret = input("Secret: ")
+        if allow_stop:
+            secret = input("Secret: ")
         if secret == "":
             secret = 'q0Ø:;AI"E47FRBQNBG4WNB8B4LQN8ERKC88U8GEN?T6LaNBG4GØ""N6K086HB"Ø8CRHW"+LS79Ø""N29QCLN5WNEBS8GENBG4FØ47a'
 
@@ -87,15 +99,13 @@ if current_process().name == "MainProcess":
         solutions = sort_strings(solutions)
         print(f"\tSolutions sorted in {time() - t0}. Outputting:\n")
 
-        i = 0
-        searchstring = None  # "If d"
-        for solution in solutions:
-            if searchstring != None and solution.string[:len(
-                    searchstring)] != searchstring:
-                continue
+        if allow_stop:
+            searchstring = None  # For debugging
+            for i, solution in enumerate(solutions):
+                if searchstring != None and solution.string[:len(
+                        searchstring)] != searchstring:
+                    continue
 
-            i += 1
-            print(f"{solution.key} | {solution.score}: {solution.string}")
-            if i == 20:
-                i = 0
-                input("---- Press enter to continue ----")
+                print(f"{solution.key} | {solution.score}: {solution.string}")
+                if i % 20 == 0 and i != 0:
+                    input("---- Press enter to continue ----")
