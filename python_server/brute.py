@@ -1,4 +1,4 @@
-from vigenere_master import vigenere_encode, vigenere_decode, alphabet
+from vigenere_master_cython import vigenere_encode, vigenere_decode, alphabet
 from multiprocessing import current_process
 
 
