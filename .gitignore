@@ -2,3 +2,4 @@
 *.ini
 __pycache__
 build
+python_server/vigenere_master_cython.html
