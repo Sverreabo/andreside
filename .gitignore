@@ -1,3 +1,4 @@
 .vscode
 *.ini
 __pycache__
+build
