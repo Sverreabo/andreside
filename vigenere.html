@@ -27,27 +27,36 @@
 
         <div class="panel" id="introduksjon">
             <h2>Introduksjon</h2>
-            <p>Vigenere-kryptering, oppkalt etter </p>
-            <p>Jeg har laget et program i python som løser <a
-                    href="https://oppgaver.kidsakoder.no/python/kryptonott/kryptonott" target="_blank"
-                    class=inline>kryptonøtta</a> til kidsakoder.</p>
+            <p>Vigenere-kryptering er oppkalt etter den franske diplomaten Blaise de Vigenère.
+                <br>
+                Les mer om hvordan vigenere-kryptering fungerer nederst på siden.
+            </p>
+            <p>I <a href="https://oppgaver.kidsakoder.no/python/kryptonott/kryptonott" target="_blank"
+                    class=inline>kryptonøtta</a> til kidsakoder utforderer de til å finne løsninger på vigenere-koder
+                uten å vite kodeordet. <br>Jeg har laget et python-program som kan gjøre dette, og i den følgende
+                seksjonen får
+                du
+                en demo.</p>
         </div>
 
         <div class="panel" id="lag_og_bryt">
             <h2>Lag og bryt vigenere-koder!</h2>
             <p>Nå kan også <em>du</em> kryptere, dekryptere og ikke minst finne løsninger på vigenere-koder ved hjelp av
                 (fra google translate: "brute force"): <em>ren styrke!</em></p>
+            <p>Dette gjøres ved hjelp av en python-server jeg har laget selv.</p>
+            <p><strong>For å starte serveren, kjør <code>start_server.bat</code>!</strong></p>
+            <p>Den kommer først til å installere <em>flask</em> og <em>flask-cors</em>, og så starter den.</p>
 
             <div class="panel background-color inline-block p50">
                 <label for="server_ip">IP-adresse:</label>
-                <input placeholder="Kopier fra webapi.py" value="10.89-11-142.nextgentel.com:5000" id="server_ip">
-                <p>IP-adressen som står her fra før av går til datamaskinen min hjemme. Hvis det ikke fungerer, kjør
-                    <code>start_server.bat</code> og paste inn
-                    IP-adressen som kommer opp. Husk å
+                <input placeholder="Kopier fra webapi.py" value="127.0.0.1:5000" id="server_ip">
+                <p>IP-adressen som står her fra før av burde matche den som kommer opp i terminal-vinduet når du har
+                    kjørt <code>start_server.bat</code>. Hvis det ikke fungerer,
+                    finn IP-adressen i vinduet og <em>copy-paste</em> det inn over. Husk å
                     ta med porten i navnet! Eksempel: <code>10.0.0.114:5000</code>
                 </p>
-
             </div>
+
             <br>
             <div class="panel background-color inline-block p45" id="encrypt">
                 <h3>Krypter</h3>
@@ -76,9 +85,11 @@
                 <h3>Brute force</h3>
                 <hr>
                 <div class="panel">
-                    <p><a onclick="paste_kryptonott()" class="inline">Trykk her</a> for å sette inn koden i kryptonøtta.
+                    <p><a onclick="paste_kryptonott()" class="inline">Trykk her</a> for å sette inn koden fra
+                        kryptonøtta.
                     </p>
-                    <p>Husk at det bare fungerer på engelske setninger med et engelsk ord som kodeord</p>
+                    <p>På min laptop tar dette 5 til 6 sekunder, så vær tålmodig.</p>
+                    <p>Husk at det bare fungerer på engelske setninger med et engelsk ord som kodeord.</p>
                 </div>
                 <input placeholder="Kryptert tekst" id="brute_secret">
                 <div class="panel">
@@ -159,6 +170,10 @@
                         rangerte svarene formatert med JSON og
                         sendt som svar til HTTP GET forespørselen. Hvor mange ord som ble funnet og hva kodeordet er
                         sendes også.
+                    </p>
+                    <p>Originalt var tanken å kjøre serveren på den stasjonære PC-en min hjemme, men i går (4. mai) sa
+                        det "PANG" og det kom et blått glimt fra <em>strømtilførselen</em>. Heldigvis virker resten av
+                        PC-en uskadet.
                     </p>
                 </details>
             </div>
