@@ -14,8 +14,7 @@ def vigenere_encode(msg, key):
         msgInt = alphabet.find(char)
         encInt = alphabet.find(key[i % key_length])
         if msgInt == -1 or encInt == -1:
-            print(f"Failed to encrypt letter '{char}'")
-            secret += "?"
+            raise Exception("Du brukte bokstaver som ikke finnes i alfabetet")
         else:
             encoded = (msgInt + encInt) % alphabet_length
             secret += alphabet[encoded]
@@ -36,8 +35,7 @@ def vigenere_decode(secret, key):
         decInt = alphabet.find(key[i % key_length])
 
         if secretInt == -1 or decInt == -1:
-            print(f"Failed to decrypt letter '{char}'")
-            msg += "?"
+            raise Exception("Du brukte bokstaver som ikke finnes i alfabetet")
         else:
             decoded = (secretInt - decInt) % alphabet_length
             msg += alphabet[decoded]

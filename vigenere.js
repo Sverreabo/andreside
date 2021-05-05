@@ -33,7 +33,6 @@ function decrypt() {
     var url = "http://" + server_ip + "/decrypt_api?secret=" + encodeURIComponent(secret) + "&key=" + encodeURIComponent(key);
     get_url(url)
         .then(data => {
-            console.log(data)
             document.getElementById("decrypt_output").innerHTML = data[0]
         });
 }
@@ -46,16 +45,21 @@ function brute_force() {
     get_url(url)
         .then(data => {
             var total = Math.round((performance.now() - t0)) / 1000;
-            reset_table();
-            data.forEach(function (item, i) {
-                var row = table.insertRow(-1);
-                var cell1 = row.insertCell(0);
-                var cell2 = row.insertCell(1);
-                var cell3 = row.insertCell(2);
-                cell1.innerHTML = item[0];
-                cell2.innerHTML = item[2];
-                cell3.innerHTML = item[1];
-            });
+            if (data[0] == "ERROR") {
+                window.alert("Noe gikk feil! Har du brukt bokstaver som ikke finnes i alfabetet du finner nedenfor?");
+            } else {
+                reset_table();
+                data.forEach(function (item, i) {
+                    var row = table.insertRow(-1);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    cell1.innerHTML = item[0];
+                    cell2.innerHTML = item[2];
+                    cell3.innerHTML = item[1];
+                });
+            }
+
             document.getElementById("brute_force_time").innerHTML = String(total) + " sekunder"
         });
 }
