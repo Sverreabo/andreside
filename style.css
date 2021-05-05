@@ -110,6 +110,10 @@ div.container {
     width: 45%
 }
 
+.p30 {
+    width: 30%;
+}
+
 .selectable, code, table.selectable_table td {
     -webkit-user-select: all; /* Safari */
     -ms-user-select: all; /* IE 10 and IE 11 */
