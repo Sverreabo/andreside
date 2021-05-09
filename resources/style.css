@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    overflow: auto;
 }
 
 body {
@@ -42,12 +41,18 @@ code {
 a {
     text-decoration: none;
     color: black;
+    transition: all 250ms;
 }
 
 hr {
     margin: 10px;
     margin-top: -10px;
     border-color: #32746D;
+}
+
+video.video_480p {
+    width: 100%;
+    max-width: 853px;
 }
 
 table {
@@ -74,7 +79,7 @@ table th {
 }
 
 #prosjekter article img {
-    height: 200px;
+    max-height: 200px;
 }
 
 #kontakt_meg article img {
@@ -82,7 +87,7 @@ table th {
 }
 
 img.curved {
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 div.container {
@@ -129,7 +134,6 @@ div.container {
 
 .panel, .tight_panel {
     min-width: min-content;
-    box-sizing: border-box;
     border-radius: 5px;
     padding: 1%;
 }
@@ -141,6 +145,10 @@ div.container {
 
 .fixed {
     position: fixed;
+}
+
+.back_button {
+    font-size: 250%;
 }
 
 article.panel, article.tight_panel {
@@ -157,7 +165,10 @@ a.button {
     border-style: outset;
     border-color: #4b6360;
     border-width: 2px;
+    margin: 0.1%;
     padding: 1%;
+    min-width: fit-content;
+    width: 15%;
 }
 
 a.inline {
@@ -172,8 +183,24 @@ a:hover {
 
 a.button:hover {
     background-color: #8daf98;
+    background: linear-gradient(#8daf98, #9EC5AB);
 }
 
 article.panel:hover, article.tight_panel:hover {
     background-color: #445553;
+    background: linear-gradient(#445553, #4b6360);
 }
+
+@media only screen and (max-width: 800px) {
+    .p60 {
+      width: 93%;
+    }
+    .panel {
+        margin-left: 0.1%;
+        margin-right: 0.1%;
+    }
+    .fixed {
+        left:0px;
+        top:0px;
+    }
+  }
