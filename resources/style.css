@@ -22,17 +22,13 @@ nav {
     background-color: #9EC5AB;
 }
 
+
 article {
     background-color: #4b6360;
 }
 
 summary {
     font-weight: 500;
-}
-
-li {
-    display: list-item;
-    list-style-position: inside;
 }
 
 code {
@@ -81,7 +77,7 @@ table th {
     height: 200px;
 }
 
-#om_meg article img {
+#kontakt_meg article img {
     height: 40px;
 }
 
@@ -102,6 +98,11 @@ div.container {
     display: block;
 }
 
+
+.p60 {
+    width: 60%;
+}
+
 .p50 {
     width: 50%;
 }
@@ -115,8 +116,6 @@ div.container {
 }
 
 .selectable, code, table.selectable_table td {
-    -webkit-user-select: all; /* Safari */
-    -ms-user-select: all; /* IE 10 and IE 11 */
     user-select: all;
 }
 
@@ -128,23 +127,23 @@ div.container {
     background-color: #32746D;
 }
 
-.panel {
+.panel, .tight_panel {
+    min-width: min-content;
+    box-sizing: border-box;
     border-radius: 5px;
     padding: 1%;
+}
+
+.panel {
     margin: 1%;
 }
 
-.tight_panel {
-    border-radius: 5px;
-    padding: 1%;
-}
 
 .fixed {
     position: fixed;
 }
 
-article.panel {
-    min-width: min-content;
+article.panel, article.tight_panel {
     width: 20%;
     margin-left: 0.5%;
     margin-right: 0.5%;
