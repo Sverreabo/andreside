@@ -16,32 +16,32 @@ async function get_url(url = '') {
 }
 
 function encrypt() {
-    var msg = document.getElementById("encrypt_msg").value;
-    var key = document.getElementById("encrypt_key").value;
-    var server_ip = document.getElementById("server_ip").value;
-    var url = "http://" + server_ip + "/encrypt_api?msg=" + encodeURIComponent(msg) + "&key=" + encodeURIComponent(key);
+    const msg = encrypt_msg_field.value;
+    const key = encrypt_key_field.value;
+    const server_ip = server_ip_field.value;
+    const url = "http://" + server_ip + "/encrypt_api?msg=" + encodeURIComponent(msg) + "&key=" + encodeURIComponent(key);
     get_url(url)
         .then(data => {
-            document.getElementById("encrypt_output").innerHTML = data[0]
+            encrypt_output.innerHTML = data[0]
         });
 }
 
 function decrypt() {
-    var secret = document.getElementById("decrypt_secret").value;
-    var key = document.getElementById("decrypt_key").value;
-    var server_ip = document.getElementById("server_ip").value;
-    var url = "http://" + server_ip + "/decrypt_api?secret=" + encodeURIComponent(secret) + "&key=" + encodeURIComponent(key);
+    const secret = decrypt_secret_field.value;
+    const key = decrypt_key_field.value;
+    const server_ip = server_ip_field.value;
+    const url = "http://" + server_ip + "/decrypt_api?secret=" + encodeURIComponent(secret) + "&key=" + encodeURIComponent(key);
     get_url(url)
         .then(data => {
-            document.getElementById("decrypt_output").innerHTML = data[0]
+            decrypt_output.innerHTML = data[0]
         });
 }
 
 function brute_force() {
-    var secret = document.getElementById("brute_secret").value;
-    var server_ip = document.getElementById("server_ip").value;
-    var url = "http://" + server_ip + "/brute_api?secret=" + encodeURIComponent(secret);
-    var t0 = performance.now()
+    const secret = brute_secret_field.value;
+    const server_ip = server_ip_field.value;
+    const url = "http://" + server_ip + "/brute_api?secret=" + encodeURIComponent(secret);
+    const t0 = performance.now()
     get_url(url)
         .then(data => {
             var total = Math.round((performance.now() - t0)) / 1000;
@@ -50,17 +50,17 @@ function brute_force() {
             } else {
                 reset_table();
                 data.forEach(function (item, i) {
-                    var row = table.insertRow(-1);
-                    var cell1 = row.insertCell(0);
-                    var cell2 = row.insertCell(1);
-                    var cell3 = row.insertCell(2);
+                    let row = table.insertRow(-1);
+                    let cell1 = row.insertCell(0);
+                    let cell2 = row.insertCell(1);
+                    let cell3 = row.insertCell(2);
                     cell1.innerHTML = item[0];
                     cell2.innerHTML = item[2];
                     cell3.innerHTML = item[1];
                 });
             }
 
-            document.getElementById("brute_force_time").innerHTML = String(total) + " sekunder"
+            brute_time_field.innerHTML = String(total) + " sekunder"
         });
 }
 
@@ -72,6 +72,17 @@ function paste_kryptonott() {
     document.getElementById("brute_secret").value = 't-JO:BK0aM,:CQ+ÆAGW?FJGB0KVCGMQ6SQN"GAIDL-PÅ7954E:7Jr,IÆoCF0M"CQdØVlHD53CÅ;IA2DMG5ØHDØVåL:JQØ439LRBBVEMTBÆ6CF0M"CQNAG8G1V6LÅ8FF4Z';
 }
 
+const server_ip_field = document.getElementById("server_ip");
+
+const encrypt_msg_field = document.getElementById("encrypt_msg");
+const encrypt_key_field = document.getElementById("encrypt_key");
+var encrypt_output = document.getElementById("encrypt_output");
+
+const decrypt_secret_field = document.getElementById("decrypt_secret");
+const decrypt_key_field = document.getElementById("decrypt_key");
+var decrypt_output = document.getElementById("decrypt_output");
+
+const brute_secret_field = document.getElementById("brute_secret");
+var brute_time_field = document.getElementById("brute_force_time")
 var table = document.getElementById("brute_force_output");
-reset_table()
-console.log("Loaded vigenere.js")
+reset_table();
