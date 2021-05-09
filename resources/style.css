@@ -179,6 +179,7 @@ a.inline {
 
 a:hover {
     color: #E8DB7D;
+    cursor: pointer;
 }
 
 a.button:hover {
