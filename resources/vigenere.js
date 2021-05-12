@@ -47,7 +47,7 @@ function brute_force() {
     const t0 = performance.now()
     get_url(url)
         .then(data => {
-            var total = Math.round((performance.now() - t0)) / 1000;
+            let total = Math.round((performance.now() - t0)) / 1000;
             if (data[0] == "ERROR") {
                 window.alert("Noe gikk feil! Har du brukt bokstaver som ikke finnes i alfabetet du finner nedenfor?");
             } else {
@@ -80,13 +80,13 @@ const server_ip_field = document.getElementById("server_ip");
 
 const encrypt_msg_field = document.getElementById("encrypt_msg");
 const encrypt_key_field = document.getElementById("encrypt_key");
-var encrypt_output = document.getElementById("encrypt_output");
+const encrypt_output = document.getElementById("encrypt_output");
 
 const decrypt_secret_field = document.getElementById("decrypt_secret");
 const decrypt_key_field = document.getElementById("decrypt_key");
-var decrypt_output = document.getElementById("decrypt_output");
+const decrypt_output = document.getElementById("decrypt_output");
 
 const brute_secret_field = document.getElementById("brute_secret");
-var brute_time_field = document.getElementById("brute_force_time")
-var table = document.getElementById("brute_force_output");
+const brute_time_field = document.getElementById("brute_force_time")
+const table = document.getElementById("brute_force_output");
 reset_table();
