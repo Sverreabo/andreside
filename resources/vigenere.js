@@ -1,6 +1,6 @@
 async function get_url(url = '') {
     try {
-        document.body.style.cursor = "wait";
+        document.body.style.cursor = "progress";
         const response = await fetch(url, {
             method: 'GET', // *GET, POST, PUT, DELETE, etc.
             cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
