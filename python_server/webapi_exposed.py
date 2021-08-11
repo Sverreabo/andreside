@@ -5,7 +5,7 @@ from socket import gethostbyname, gethostname
 
 app = Flask(__name__)
 cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
+app.config["CORS_HEADERS"] = "Content-Type"
 
 
 @app.route("/")
@@ -22,8 +22,9 @@ def brute_api():
         print("")
         print(secret)
         solutions = brute.sort_strings(brute.brute(str(secret)))[:6]
-        return jsonify([[str(solution), solution.score, solution.key]
-                        for solution in solutions])
+        return jsonify(
+            [[str(solution), solution.score, solution.key] for solution in solutions]
+        )
     except:
         return jsonify(["ERROR"])
 
@@ -54,4 +55,4 @@ def decrypt_api():
 
 if __name__ == "__main__":
     ip = gethostbyname(gethostname())
-    app.run(host=ip, port=5000)
+    app.run(host="10.0.0.114", port=5000)
